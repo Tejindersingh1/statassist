@@ -1,0 +1,11 @@
+# Node / React
+node_modules
+.next
+.env             # keep secrets local
+dist
+# Python
+__pycache__/
+*.py[cod]
+.env*
+# OS files
+.DS_Store

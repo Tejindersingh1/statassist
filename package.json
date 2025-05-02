@@ -1,0 +1,19 @@
+{
+  "name": "stat-assist",
+  "version": "1.0.0",
+  "description": "A platform for streamlining study design, data capture, analysis, and reporting for clinicians",
+  "scripts": {
+    "install:all": "npm run install:api && npm run install:ui && npm run install:powersim",
+    "install:api": "cd statassist-api && pip install -r requirements.txt",
+    "install:ui": "cd statassist-ui && npm install",
+    "install:powersim": "cd powersim-service && pip install -r requirements.txt",
+    "start": "concurrently \"npm run start:api\" \"npm run start:ui\" \"npm run start:powersim\"",
+    "start:api": "cd statassist-api && uvicorn app.main:app --reload --port 8000",
+    "start:ui": "cd statassist-ui && npm run dev",
+    "start:powersim": "cd powersim-service && uvicorn app.main:app --reload --port 8001",
+    "build": "cd statassist-ui && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
