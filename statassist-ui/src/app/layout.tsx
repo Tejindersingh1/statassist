@@ -1,24 +1,18 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import '@/styles/globals.css'
+import './globals.css';
+import { Inter } from 'next/font/google';
+import Shell from '@/components/layout/Shell';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'Stat-Assist | Clinical Research Design Platform',
-  description: 'A platform for streamlining study design, data capture, analysis, and reporting for clinicians',
-}
+export const metadata = { title: 'Stat‑Assist' };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} min-h-screen flex flex-col`}>
+        <Shell>{children}</Shell>
       </body>
     </html>
-  )
+  );
 }
+
