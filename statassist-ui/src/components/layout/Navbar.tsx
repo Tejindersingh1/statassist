@@ -7,39 +7,39 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b">
+    <header className="border-b bg-white">
       <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-6">
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <span className="text-2xl font-bold">Stat-Assist</span>
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-2xl font-bold">StatAssist</span>
           </Link>
-          <nav className="hidden md:flex gap-6">
+          <nav className="hidden md:flex gap-8">
             <Link 
               href="/dashboard" 
-              className={`text-sm font-medium transition-colors ${
-                pathname === '/dashboard' 
-                  ? 'text-primary' 
-                  : 'text-muted-foreground hover:text-primary'
+              className={`text-base font-medium transition-colors ${
+                pathname === '/dashboard' || pathname === '/' 
+                  ? 'text-black' 
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Dashboard
             </Link>
             <Link 
               href="/studies" 
-              className={`text-sm font-medium transition-colors ${
+              className={`text-base font-medium transition-colors ${
                 pathname.startsWith('/studies') 
-                  ? 'text-primary' 
-                  : 'text-muted-foreground hover:text-primary'
+                  ? 'text-black' 
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               My Studies
             </Link>
             <Link 
               href="/resources" 
-              className={`text-sm font-medium transition-colors ${
+              className={`text-base font-medium transition-colors ${
                 pathname.startsWith('/resources') 
-                  ? 'text-primary' 
-                  : 'text-muted-foreground hover:text-primary'
+                  ? 'text-black' 
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Resources
@@ -47,11 +47,8 @@ export function Navbar() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/studies/new">
-            <Button>New Study</Button>
-          </Link>
-          <div className="relative h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
-            <span className="text-xs font-medium">US</span>
+          <div className="relative h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+            <span className="text-sm font-medium">US</span>
           </div>
         </div>
       </div>
