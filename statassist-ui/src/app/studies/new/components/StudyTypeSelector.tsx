@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, Users, Activity, BarChart2 } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
-type StudyType = 'RCT' | 'DiagnosticAccuracy' | 'Cohort' | 'CrossSectional' | 'CaseControl';
+type StudyType = 'RCT' | 'DiagnosticAccuracy' | 'Cohort';
 
 interface StudyTypeSelectorProps {
   onSelect: (type: StudyType) => void;
@@ -17,67 +17,53 @@ export function StudyTypeSelector({ onSelect, selectedType }: StudyTypeSelectorP
       title: 'Randomized Controlled Trial',
       description: 'Compare outcomes between intervention and control groups with random assignment.',
       examples: 'Drug efficacy, treatment comparison',
-      icon: <Activity className="h-8 w-8 text-blue-600" />
+      icon: '🔄'
     },
     {
       id: 'DiagnosticAccuracy',
       title: 'Diagnostic Accuracy Study',
       description: 'Evaluate how well a diagnostic test identifies a target condition.',
       examples: 'Sensitivity/specificity, ROC analysis',
-      icon: <BarChart2 className="h-8 w-8 text-blue-600" />
+      icon: '🔍'
     },
     {
       id: 'Cohort',
       title: 'Cohort Study',
       description: 'Follow groups of people over time to study outcomes associated with exposures.',
       examples: 'Risk factors, prognostic studies',
-      icon: <Users className="h-8 w-8 text-blue-600" />
-    },
-    {
-      id: 'CrossSectional',
-      title: 'Cross-Sectional Study',
-      description: 'Examine the relationship between variables at a single point in time.',
-      examples: 'Prevalence studies, surveys',
-      icon: <BarChart2 className="h-8 w-8 text-blue-600" />
-    },
-    {
-      id: 'CaseControl',
-      title: 'Case-Control Study',
-      description: 'Compare subjects with a condition to those without to identify risk factors.',
-      examples: 'Rare disease studies, retrospective analysis',
-      icon: <Users className="h-8 w-8 text-blue-600" />
+      icon: '👥'
     }
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-2">Select Study Type</h1>
-        <p className="text-gray-600">
+        <p className="text-muted-foreground">
           Choose the type of study you want to design. This will determine the workflow and statistical methods.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {studyTypes.map((type) => (
           <Card 
             key={type.id}
-            className={`cursor-pointer transition-all hover:shadow-md ${
-              selectedType === type.id ? 'ring-2 ring-blue-500 shadow-md' : ''
+            className={`cursor-pointer transition-all hover:border-primary ${
+              selectedType === type.id ? 'border-2 border-primary' : ''
             }`}
             onClick={() => onSelect(type.id as StudyType)}
           >
-            <CardHeader className="relative pb-2">
+            <CardHeader className="relative">
               {selectedType === type.id && (
                 <div className="absolute top-4 right-4">
-                  <CheckCircle className="h-5 w-5 text-blue-600" />
+                  <CheckCircle className="h-6 w-6 text-primary" />
                 </div>
               )}
-              <div className="mb-2">{type.icon}</div>
-              <CardTitle className="text-lg">{type.title}</CardTitle>
+              <div className="text-3xl mb-2">{type.icon}</div>
+              <CardTitle>{type.title}</CardTitle>
+              <CardDescription>{type.description}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 mb-4">{type.description}</p>
               <p className="text-sm">
                 <span className="font-semibold">Examples:</span> {type.examples}
               </p>
@@ -85,10 +71,10 @@ export function StudyTypeSelector({ onSelect, selectedType }: StudyTypeSelectorP
             <CardFooter>
               <Button 
                 variant={selectedType === type.id ? "default" : "outline"} 
-                className={`w-full ${selectedType === type.id ? 'bg-blue-600 hover:bg-blue-700' : 'text-blue-600 border-blue-200 hover:border-blue-600'}`}
+                className="w-full"
                 onClick={() => onSelect(type.id as StudyType)}
               >
-                {selectedType === type.id ? 'Selected' : 'Select This Type'}
+                {selectedType === type.id ? 'Selected' : 'Select'}
               </Button>
             </CardFooter>
           </Card>
@@ -97,7 +83,7 @@ export function StudyTypeSelector({ onSelect, selectedType }: StudyTypeSelectorP
 
       <div className="flex justify-end mt-8">
         <Button 
-          className="bg-blue-600 hover:bg-blue-700 px-6 py-6 text-base"
+          size="lg" 
           disabled={!selectedType}
           onClick={() => selectedType && onSelect(selectedType)}
         >
