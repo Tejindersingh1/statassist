@@ -118,7 +118,7 @@ For demonstration purposes, you can use the "Demo Login" button on the login pag
 - PHI isolation with field-level encryption
 - Comprehensive audit trail
 - Zero-trust security model
-- HIPAA and GDPR compliant
+- HIPAA and GDPR compliant (under reviewal)
 
 ## Accessibility
 
