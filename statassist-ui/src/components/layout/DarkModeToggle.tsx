@@ -2,9 +2,15 @@
 
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import useMounted from '@/lib/useMounted';
 
 export default function DarkModeToggle() {
+  const mounted = useMounted();
   const { theme, setTheme } = useTheme();
+
+  // Render nothing on the server; hydrate safely on the client
+  if (!mounted) return null;
+
   const isDark = theme === 'dark';
 
   return (
