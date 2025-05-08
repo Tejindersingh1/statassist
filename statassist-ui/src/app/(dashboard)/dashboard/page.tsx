@@ -1,4 +1,3 @@
-
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Sigma, FileText } from 'lucide-react';
@@ -29,8 +28,8 @@ const quickActions = [
 async function getRecentStudies() {
   // TODO replace with real fetch
   return [
-    { id: 1, title: 'Study A', type: 'Observational', status: 'active', updated: '2 d' },
-    { id: 2, title: 'Study B', type: 'Clinical Trial', status: 'draft', updated: '5 d' },
+    { id: 1, title: 'Study A', type: 'Observational', status: 'active', updated: '2 d' },
+    { id: 2, title: 'Study B', type: 'Clinical Trial', status: 'draft', updated: '5 d' },
   ];
 }
 
@@ -59,21 +58,21 @@ export default async function DashboardPage() {
         <h2 className="text-lg font-medium">Quick actions</h2>
         <div className="grid gap-6 md:grid-cols-3">
           {quickActions.map((a) => (
-            <Card
-              key={a.href}
-              asChild
-              className="hover:shadow-lg transition motion-safe:hover:-translate-y-0.5"
-            >
-              <a href={a.href}>
-                <CardHeader className="flex items-center gap-4">
-                  <a.icon className="h-6 w-6 text-brand-600" />
-                  <div>
-                    <CardTitle className="text-base">{a.label}</CardTitle>
-                    <CardDescription>{a.desc}</CardDescription>
-                  </div>
-                </CardHeader>
-              </a>
-            </Card>
+            <div key={a.href}>
+              <Card
+                className="hover:shadow-lg transition motion-safe:hover:-translate-y-0.5"
+              >
+                <a href={a.href}>
+                  <CardHeader className="flex items-center gap-4">
+                    <a.icon className="h-6 w-6 text-brand-600" />
+                    <div>
+                      <CardTitle className="text-base">{a.label}</CardTitle>
+                      <CardDescription>{a.desc}</CardDescription>
+                    </div>
+                  </CardHeader>
+                </a>
+              </Card>
+            </div>
           ))}
         </div>
       </section>
