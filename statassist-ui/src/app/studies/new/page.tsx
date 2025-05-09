@@ -21,11 +21,11 @@ export default function NewStudyPage() {
   const handleCreateStudy = async () => {
     try {
       // In a real implementation, this would call the API to create a study
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/studies`, {
+      const response = await fetch('/api/v1/studies', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          // 'Authorization': `Bearer ${localStorage.getItem('token')}` // Uncomment if you implement auth
         },
         body: JSON.stringify({
           title: `New ${selectedType} Study`,
