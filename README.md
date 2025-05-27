@@ -1,6 +1,5 @@
 # Stat-Assist Platform
 
-A comprehensive platform for streamlining study design, data capture, analysis, and reporting for clinicians.
 
 ## Overview
 
@@ -15,9 +14,9 @@ Stat-Assist is designed to make clinical research design, analysis, and reportin
 
 ## Technology Stack
 
-- **Backend**: FastAPI, SQLAlchemy, PostgreSQL
+- **Backend**: FastAPI, SQLAlchemy, PostgreSQ
 - **Frontend**: React (Next.js), Tailwind CSS, shadcn/ui
-- **Statistical Services**: Python-based power simulation engine
+- aat engine
 - **Deployment**: Kubernetes-ready
 
 ## Project Structure
