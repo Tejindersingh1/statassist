@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import auth, studies, variables, statistical
+from app.routers import auth, studies, variables, statistical, research
 from app.db.database import create_tables
 import logging
 
@@ -32,6 +32,7 @@ app.include_router(auth.router, tags=["Authentication"])
 app.include_router(studies.router, tags=["Studies"])
 app.include_router(variables.router, tags=["Variables"])
 app.include_router(statistical.router, tags=["Statistical"])
+app.include_router(research.router, tags=["Research"])
 
 @app.on_event("startup")
 async def startup_event():

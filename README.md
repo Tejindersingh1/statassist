@@ -11,6 +11,7 @@ Stat-Assist is designed to make clinical research design, analysis, and reportin
 - **Statistical Test Recommender**: Automated recommendations for appropriate statistical tests based on study design and variables
 - **Power Calculator**: Interactive sample size and power calculations with visualizations
 - **Protocol Generator**: Automated generation of study protocols based on design inputs
+- **PICOT Refiner**: Converts free-form questions into structured PICOT format using Gemini Flash
 
 ## Technology Stack
 
@@ -73,6 +74,9 @@ stat-assist/
    - Python dependencies for the API service
    - Python dependencies for the PowerSim service
    - Node.js dependencies for the UI service
+
+3. Set the `GEMINI_API_KEY` environment variable with your Gemini Flash API key.
+   This is required for the research question refinement features.
 
 ### Running the Application
 
